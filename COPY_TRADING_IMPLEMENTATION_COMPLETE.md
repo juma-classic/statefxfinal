@@ -8,7 +8,7 @@ Successfully implemented a fully functional Copy Trading feature for State FX th
 ### Core Features Implemented
 
 1. **Real-Time WebSocket Integration**
-   - Uses `robust-websocket-manager.js` with app ID 119552
+   - Uses `robust-websocket-manager.js` with app ID 68794
    - Automatic reconnection and connection monitoring
    - Master account authorization and balance tracking
    - Multiple follower account connections
@@ -135,7 +135,7 @@ class CopyTradingManager {
 - Uses existing `robust-websocket-manager.js`
 - Integrates with main app authentication
 - Reads token from localStorage (`active_loginid_token`)
-- Uses app ID 119552 (State FX)
+- Uses app ID 68794 (State FX)
 
 ### Navigation Integration
 - Added Copy Trading tab after DTrader
