@@ -424,7 +424,7 @@ const ModernLoader: React.FC<ModernLoaderProps> = ({ onFinish }) => {
 
                 {/* Brand name */}
                 <h1 className='zeus-loader__brand'>
-                    <span className='zeus-loader__brand-zeus'>PLENTY</span>
+                    <span className='zeus-loader__brand-zeus'>STATE</span>
                     <span className='zeus-loader__brand-trading'>FX</span>
                 </h1>
 
