@@ -322,13 +322,115 @@ const ModernLoader: React.FC<ModernLoaderProps> = ({ onFinish }) => {
 
             {/* Main content */}
             <div className='zeus-loader__content'>
-                {/* State FX Logo */}
+                {/* State FX Lion Logo */}
                 <div className='zeus-loader__logo-container'>
-                    <img 
-                        src='/plentyfxlogo.png' 
-                        alt='State FX Logo' 
-                        className='zeus-loader__logo'
-                    />
+                    <svg 
+                        className='zeus-loader__logo zeus-loader__lion-logo'
+                        viewBox='0 0 200 200'
+                        xmlns='http://www.w3.org/2000/svg'
+                    >
+                        <defs>
+                            <linearGradient id='lionGradient' x1='0%' y1='0%' x2='100%' y2='100%'>
+                                <stop offset='0%' stopColor='#FFD700' />
+                                <stop offset='50%' stopColor='#FFA500' />
+                                <stop offset='100%' stopColor='#FF8C00' />
+                            </linearGradient>
+                            <radialGradient id='maneGradient' cx='50%' cy='50%'>
+                                <stop offset='0%' stopColor='#FFD700' stopOpacity='0.9' />
+                                <stop offset='70%' stopColor='#FFA500' stopOpacity='0.7' />
+                                <stop offset='100%' stopColor='#FF8C00' stopOpacity='0.5' />
+                            </radialGradient>
+                            <filter id='lionGlow'>
+                                <feGaussianBlur stdDeviation='3' result='coloredBlur' />
+                                <feMerge>
+                                    <feMergeNode in='coloredBlur' />
+                                    <feMergeNode in='SourceGraphic' />
+                                </feMerge>
+                            </filter>
+                        </defs>
+
+                        {/* Majestic Mane - Multiple layers for depth */}
+                        <circle cx='100' cy='100' r='75' fill='url(#maneGradient)' opacity='0.3' filter='url(#lionGlow)' />
+                        <circle cx='100' cy='100' r='65' fill='url(#maneGradient)' opacity='0.4' filter='url(#lionGlow)' />
+                        
+                        {/* Mane spikes - Crown-like */}
+                        {[...Array(16)].map((_, i) => {
+                            const angle = (i * 22.5 * Math.PI) / 180;
+                            const x1 = 100 + Math.cos(angle) * 55;
+                            const y1 = 100 + Math.sin(angle) * 55;
+                            const x2 = 100 + Math.cos(angle) * 80;
+                            const y2 = 100 + Math.sin(angle) * 80;
+                            return (
+                                <path
+                                    key={i}
+                                    d={`M ${x1} ${y1} Q ${100 + Math.cos(angle) * 70} ${100 + Math.sin(angle) * 70} ${x2} ${y2}`}
+                                    stroke='url(#lionGradient)'
+                                    strokeWidth='8'
+                                    fill='none'
+                                    opacity='0.6'
+                                    strokeLinecap='round'
+                                />
+                            );
+                        })}
+
+                        {/* Lion's Head - Main circle */}
+                        <circle cx='100' cy='100' r='45' fill='url(#lionGradient)' filter='url(#lionGlow)' />
+                        
+                        {/* Facial features shadow */}
+                        <ellipse cx='100' cy='110' rx='35' ry='30' fill='#FF8C00' opacity='0.3' />
+
+                        {/* Ears */}
+                        <ellipse cx='70' cy='70' rx='15' ry='20' fill='url(#lionGradient)' transform='rotate(-20 70 70)' />
+                        <ellipse cx='130' cy='70' rx='15' ry='20' fill='url(#lionGradient)' transform='rotate(20 130 70)' />
+                        <ellipse cx='70' cy='72' rx='8' ry='12' fill='#FF8C00' transform='rotate(-20 70 72)' />
+                        <ellipse cx='130' cy='72' rx='8' ry='12' fill='#FF8C00' transform='rotate(20 130 72)' />
+
+                        {/* Eyes - Fierce and focused */}
+                        <ellipse cx='85' cy='95' rx='8' ry='12' fill='#1a1a1a' />
+                        <ellipse cx='115' cy='95' rx='8' ry='12' fill='#1a1a1a' />
+                        <circle cx='86' cy='93' r='3' fill='#FFD700' opacity='0.8' />
+                        <circle cx='116' cy='93' r='3' fill='#FFD700' opacity='0.8' />
+                        <circle cx='87' cy='91' r='1.5' fill='white' />
+                        <circle cx='117' cy='91' r='1.5' fill='white' />
+
+                        {/* Nose */}
+                        <path
+                            d='M 100 105 L 95 112 Q 100 115 105 112 Z'
+                            fill='#1a1a1a'
+                        />
+
+                        {/* Mouth - Confident smile */}
+                        <path
+                            d='M 100 112 Q 85 120 75 118'
+                            stroke='#1a1a1a'
+                            strokeWidth='2.5'
+                            fill='none'
+                            strokeLinecap='round'
+                        />
+                        <path
+                            d='M 100 112 Q 115 120 125 118'
+                            stroke='#1a1a1a'
+                            strokeWidth='2.5'
+                            fill='none'
+                            strokeLinecap='round'
+                        />
+
+                        {/* Whisker dots */}
+                        <circle cx='65' cy='105' r='2' fill='#1a1a1a' />
+                        <circle cx='60' cy='110' r='2' fill='#1a1a1a' />
+                        <circle cx='135' cy='105' r='2' fill='#1a1a1a' />
+                        <circle cx='140' cy='110' r='2' fill='#1a1a1a' />
+
+                        {/* Chin tuft */}
+                        <ellipse cx='100' cy='135' rx='12' ry='8' fill='url(#lionGradient)' opacity='0.8' />
+                        <path
+                            d='M 95 135 Q 100 142 105 135'
+                            stroke='url(#lionGradient)'
+                            strokeWidth='4'
+                            fill='none'
+                            opacity='0.6'
+                        />
+                    </svg>
                     <div className='zeus-loader__logo-glow' />
                     <div className='zeus-loader__logo-glow zeus-loader__logo-glow--secondary' />
                 </div>
