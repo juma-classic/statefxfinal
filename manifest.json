@@ -1,8 +1,8 @@
 {
-    "name": "PLENTY FX",
-    "short_name": "PLENTY FX",
+    "name": "State FX",
+    "short_name": "State FX",
     "theme_color": "#14b8a6",
-    "description": "Professional automated trading platform - Reliable trading tools by PLENTY FX.",
+    "description": "Professional automated trading platform - Reliable trading tools by State FX.",
     "background_color": "#0f1419",
     "display": "standalone",
     "start_url": "/",
